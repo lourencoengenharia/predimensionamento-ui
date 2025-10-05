@@ -1,4 +1,4 @@
-_# Path: predimensionamento-ui/src/pages/LoginPage.jsx_
+﻿_# Path: predimensionamento-ui/src/pages/LoginPage.jsx_
 
 import React, { useState } from 'react';
 import api from '../services/api';
@@ -40,4 +40,6 @@ const LoginPage = ({ onLogin }) => {
 };
 
 export default LoginPage;
+
+
 

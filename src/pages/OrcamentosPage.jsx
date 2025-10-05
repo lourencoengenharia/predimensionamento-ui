@@ -1,4 +1,4 @@
-_# Path: predimensionamento-ui/src/pages/OrcamentosPage.jsx_
+﻿_# Path: predimensionamento-ui/src/pages/OrcamentosPage.jsx_
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
@@ -77,7 +77,7 @@ const OrcamentosPage = () => {
       });
       setOrcamentoAtual(response.data);
     } catch (error) {
-      console.error('Erro ao gerar orçamento:', error);
+      console.error('Erro ao gerar orÃ§amento:', error);
     }
   };
 
@@ -86,17 +86,17 @@ const OrcamentosPage = () => {
       const response = await api.get(`/orcamentos/planilha/${orcamentoId}`);
       const planilha = response.data;
       
-      // Criar conteúdo da planilha em formato texto
-      let conteudo = `ORÇAMENTO - ${planilha.cabecalho.projeto}\n`;
+      // Criar conteÃºdo da planilha em formato texto
+      let conteudo = `ORÃ‡AMENTO - ${planilha.cabecalho.projeto}\n`;
       conteudo += `Data: ${planilha.cabecalho.data}\n`;
-      conteudo += `Dimensões: ${planilha.cabecalho.dimensoes}\n\n`;
+      conteudo += `DimensÃµes: ${planilha.cabecalho.dimensoes}\n\n`;
       
       conteudo += `MATERIAIS:\n`;
       planilha.materiais.forEach(item => {
         conteudo += `${item.item}: ${item.quantidade} ${item.unidade} x R$ ${item.preco_unitario.toFixed(2)} = R$ ${item.total.toFixed(2)}\n`;
       });
       
-      conteudo += `\nSERVIÇOS:\n`;
+      conteudo += `\nSERVIÃ‡OS:\n`;
       planilha.servicos.forEach(item => {
         conteudo += `${item.item}: R$ ${item.total.toFixed(2)}\n`;
       });
@@ -122,7 +122,7 @@ const OrcamentosPage = () => {
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="gerar" className="flex items-center gap-2">
             <DollarSign className="h-4 w-4" />
-            Gerar Orçamento
+            Gerar OrÃ§amento
           </TabsTrigger>
           <TabsTrigger value="templates" className="flex items-center gap-2">
             <Settings className="h-4 w-4" />
@@ -130,18 +130,18 @@ const OrcamentosPage = () => {
           </TabsTrigger>
           <TabsTrigger value="historico" className="flex items-center gap-2">
             <FileText className="h-4 w-4" />
-            Histórico
+            HistÃ³rico
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="gerar">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Formulário de Geração */}
+            {/* FormulÃ¡rio de GeraÃ§Ã£o */}
             <Card>
               <CardHeader>
-                <CardTitle>Gerar Novo Orçamento</CardTitle>
+                <CardTitle>Gerar Novo OrÃ§amento</CardTitle>
                 <CardDescription>
-                  Selecione um projeto e template para gerar o orçamento
+                  Selecione um projeto e template para gerar o orÃ§amento
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -162,10 +162,10 @@ const OrcamentosPage = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="template">Template de Preços (Opcional)</Label>
+                  <Label htmlFor="template">Template de PreÃ§os (Opcional)</Label>
                   <Select value={templateSelecionado} onValueChange={setTemplateSelecionado}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Selecione um template ou deixe em branco para usar padrão" />
+                      <SelectValue placeholder="Selecione um template ou deixe em branco para usar padrÃ£o" />
                     </SelectTrigger>
                     <SelectContent>
                       {templates.map((template) => (
@@ -178,17 +178,17 @@ const OrcamentosPage = () => {
                 </div>
 
                 <Button onClick={gerarOrcamento} className="w-full">
-                  Gerar Orçamento
+                  Gerar OrÃ§amento
                 </Button>
               </CardContent>
             </Card>
 
-            {/* Resultado do Orçamento */}
+            {/* Resultado do OrÃ§amento */}
             <Card>
               <CardHeader>
-                <CardTitle>Resultado do Orçamento</CardTitle>
+                <CardTitle>Resultado do OrÃ§amento</CardTitle>
                 <CardDescription>
-                  Detalhes do orçamento gerado
+                  Detalhes do orÃ§amento gerado
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -196,15 +196,15 @@ const OrcamentosPage = () => {
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-blue-50 p-3 rounded-lg">
-                        <p className="text-sm text-blue-600 font-medium">Peso do Aço</p>
+                        <p className="text-sm text-blue-600 font-medium">Peso do AÃ§o</p>
                         <p className="text-lg font-bold text-blue-800">
                           {orcamentoAtual.orcamento.peso_total_aco?.toFixed(0)} kg
                         </p>
                       </div>
                       <div className="bg-green-50 p-3 rounded-lg">
-                        <p className="text-sm text-green-600 font-medium">Área de Telha</p>
+                        <p className="text-sm text-green-600 font-medium">Ãrea de Telha</p>
                         <p className="text-lg font-bold text-green-800">
-                          {orcamentoAtual.orcamento.area_telha?.toFixed(1)} m²
+                          {orcamentoAtual.orcamento.area_telha?.toFixed(1)} mÂ²
                         </p>
                       </div>
                     </div>
@@ -213,7 +213,7 @@ const OrcamentosPage = () => {
                       <h4 className="font-medium text-gray-800 mb-3">Custos</h4>
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
-                          <span>Estrutura de Aço:</span>
+                          <span>Estrutura de AÃ§o:</span>
                           <span>R$ {orcamentoAtual.orcamento.custo_aco?.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between">
@@ -234,7 +234,7 @@ const OrcamentosPage = () => {
                           <span>R$ {orcamentoAtual.orcamento.custo_total?.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between text-sm text-gray-600">
-                          <span>Preço por m²:</span>
+                          <span>PreÃ§o por mÂ²:</span>
                           <span>R$ {orcamentoAtual.resumo?.preco_por_m2?.toFixed(2)}</span>
                         </div>
                       </div>
@@ -252,7 +252,7 @@ const OrcamentosPage = () => {
                 ) : (
                   <div className="text-center text-gray-500 py-8">
                     <DollarSign className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                    <p>Selecione um projeto e clique em "Gerar Orçamento"</p>
+                    <p>Selecione um projeto e clique em "Gerar OrÃ§amento"</p>
                   </div>
                 )}
               </CardContent>
@@ -263,9 +263,9 @@ const OrcamentosPage = () => {
         <TabsContent value="templates">
           <Card>
             <CardHeader>
-              <CardTitle>Templates de Orçamento</CardTitle>
+              <CardTitle>Templates de OrÃ§amento</CardTitle>
               <CardDescription>
-                Crie e gerencie templates com preços padrão
+                Crie e gerencie templates com preÃ§os padrÃ£o
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -280,12 +280,12 @@ const OrcamentosPage = () => {
                         id="nome_template"
                         value={novoTemplate.nome}
                         onChange={(e) => setNovoTemplate(prev => ({ ...prev, nome: e.target.value }))}
-                        placeholder="Ex: Preços 2024"
+                        placeholder="Ex: PreÃ§os 2024"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <Label htmlFor="preco_aco">Preço do Aço (R$/kg)</Label>
+                        <Label htmlFor="preco_aco">PreÃ§o do AÃ§o (R$/kg)</Label>
                         <Input
                           id="preco_aco"
                           type="number"
@@ -295,7 +295,7 @@ const OrcamentosPage = () => {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="preco_telha">Preço da Telha (R$/m²)</Label>
+                        <Label htmlFor="preco_telha">PreÃ§o da Telha (R$/mÂ²)</Label>
                         <Input
                           id="preco_telha"
                           type="number"
@@ -341,8 +341,8 @@ const OrcamentosPage = () => {
                       <Card key={template.id} className="p-4">
                         <h4 className="font-medium">{template.nome}</h4>
                         <div className="grid grid-cols-2 gap-2 text-sm text-gray-600 mt-2">
-                          <p>Aço: R$ {template.preco_kg_aco_default}/kg</p>
-                          <p>Telha: R$ {template.preco_m2_telha_default}/m²</p>
+                          <p>AÃ§o: R$ {template.preco_kg_aco_default}/kg</p>
+                          <p>Telha: R$ {template.preco_m2_telha_default}/mÂ²</p>
                           <p>Montagem: {(template.percentual_montagem * 100).toFixed(0)}%</p>
                           <p>Projeto: {(template.percentual_projeto * 100).toFixed(0)}%</p>
                         </div>
@@ -358,15 +358,15 @@ const OrcamentosPage = () => {
         <TabsContent value="historico">
           <Card>
             <CardHeader>
-              <CardTitle>Histórico de Orçamentos</CardTitle>
+              <CardTitle>HistÃ³rico de OrÃ§amentos</CardTitle>
               <CardDescription>
-                Visualize orçamentos gerados anteriormente
+                Visualize orÃ§amentos gerados anteriormente
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="text-center text-gray-500 py-8">
                 <FileText className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                <p>Funcionalidade de histórico em desenvolvimento</p>
+                <p>Funcionalidade de histÃ³rico em desenvolvimento</p>
               </div>
             </CardContent>
           </Card>
@@ -377,3 +377,5 @@ const OrcamentosPage = () => {
 };
 
 export default OrcamentosPage;
+
+

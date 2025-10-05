@@ -1,4 +1,4 @@
-_# Path: predimensionamento-ui/src/pages/RegisterPage.jsx_
+﻿_# Path: predimensionamento-ui/src/pages/RegisterPage.jsx_
 
 import React, { useState } from 'react';
 import api from '../services/api';
@@ -50,4 +50,7 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+
+
+
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Input } from '@/components/ui/input.jsx'
@@ -80,7 +80,7 @@ function App() {
       })
       setResultadoCalculo(response.data.resultado_calculo)
     } catch (error) {
-      console.error('Erro no cálculo:', error)
+      console.error('Erro no cÃ¡lculo:', error)
     }
   }
 
@@ -100,10 +100,10 @@ function App() {
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle className="text-center text-2xl font-bold text-gray-800">
-              Sistema de Pré-Dimensionamento
+              Sistema de PrÃ©-Dimensionamento
             </CardTitle>
             <CardDescription className="text-center">
-              Estruturas Metálicas
+              Estruturas MetÃ¡licas
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -134,7 +134,7 @@ function App() {
             <div className="flex items-center">
               <Building className="h-8 w-8 text-blue-600 mr-3" />
               <h1 className="text-xl font-semibold text-gray-900">
-                Pré-Dimensionamento Estrutural
+                PrÃ©-Dimensionamento Estrutural
               </h1>
             </div>
             <Button onClick={handleLogout} variant="outline">
@@ -158,18 +158,18 @@ function App() {
             </TabsTrigger>
             <TabsTrigger value="orcamentos" className="flex items-center gap-2">
               <Users className="h-4 w-4" />
-              Orçamentos
+              OrÃ§amentos
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="dimensionamento">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Formulário de Entrada */}
+              {/* FormulÃ¡rio de Entrada */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Dados do Galpão</CardTitle>
+                  <CardTitle>Dados do GalpÃ£o</CardTitle>
                   <CardDescription>
-                    Insira as informações básicas para o pré-dimensionamento
+                    Insira as informaÃ§Ãµes bÃ¡sicas para o prÃ©-dimensionamento
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -180,7 +180,7 @@ function App() {
                         id="nome"
                         value={projetoAtual.nome}
                         onChange={(e) => handleInputChange('nome', e.target.value)}
-                        placeholder="Ex: Galpão Industrial"
+                        placeholder="Ex: GalpÃ£o Industrial"
                       />
                     </div>
                     <div>
@@ -190,11 +190,11 @@ function App() {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="SP">São Paulo</SelectItem>
+                          <SelectItem value="SP">SÃ£o Paulo</SelectItem>
                           <SelectItem value="RJ">Rio de Janeiro</SelectItem>
                           <SelectItem value="MG">Minas Gerais</SelectItem>
                           <SelectItem value="RS">Rio Grande do Sul</SelectItem>
-                          <SelectItem value="PR">Paraná</SelectItem>
+                          <SelectItem value="PR">ParanÃ¡</SelectItem>
                           <SelectItem value="SC">Santa Catarina</SelectItem>
                         </SelectContent>
                       </Select>
@@ -236,7 +236,7 @@ function App() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="inclinacao">Inclinação do Telhado (°)</Label>
+                      <Label htmlFor="inclinacao">InclinaÃ§Ã£o do Telhado (Â°)</Label>
                       <Input
                         id="inclinacao"
                         type="number"
@@ -252,8 +252,8 @@ function App() {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="uma_agua">Uma Água</SelectItem>
-                          <SelectItem value="duas_aguas">Duas Águas</SelectItem>
+                          <SelectItem value="uma_agua">Uma Ãgua</SelectItem>
+                          <SelectItem value="duas_aguas">Duas Ãguas</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -273,9 +273,9 @@ function App() {
               {/* Resultados */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Resultados do Cálculo</CardTitle>
+                  <CardTitle>Resultados do CÃ¡lculo</CardTitle>
                   <CardDescription>
-                    Pré-dimensionamento conforme normas brasileiras
+                    PrÃ©-dimensionamento conforme normas brasileiras
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -289,7 +289,7 @@ function App() {
                           </p>
                         </div>
                         <div className="bg-green-50 p-3 rounded-lg">
-                          <p className="text-sm text-green-600 font-medium">Peso do Aço</p>
+                          <p className="text-sm text-green-600 font-medium">Peso do AÃ§o</p>
                           <p className="text-lg font-bold text-green-800">
                             {resultadoCalculo.peso_aco_estimado?.toFixed(0)} kg
                           </p>
@@ -297,15 +297,15 @@ function App() {
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="bg-purple-50 p-3 rounded-lg">
-                          <p className="text-sm text-purple-600 font-medium">Área de Telha</p>
+                          <p className="text-sm text-purple-600 font-medium">Ãrea de Telha</p>
                           <p className="text-lg font-bold text-purple-800">
-                            {resultadoCalculo.area_telha?.toFixed(1)} m²
+                            {resultadoCalculo.area_telha?.toFixed(1)} mÂ²
                           </p>
                         </div>
                         <div className="bg-orange-50 p-3 rounded-lg">
-                          <p className="text-sm text-orange-600 font-medium">Área Construída</p>
+                          <p className="text-sm text-orange-600 font-medium">Ãrea ConstruÃ­da</p>
                           <p className="text-lg font-bold text-orange-800">
-                            {resultadoCalculo.area_construida?.toFixed(1)} m²
+                            {resultadoCalculo.area_construida?.toFixed(1)} mÂ²
                           </p>
                         </div>
                       </div>
@@ -313,10 +313,10 @@ function App() {
                         <div className="bg-gray-50 p-4 rounded-lg">
                           <h4 className="font-medium text-gray-800 mb-2">Cargas de Vento</h4>
                           <div className="grid grid-cols-2 gap-2 text-sm">
-                            <p>Pressão Dinâmica: {resultadoCalculo.cargas_vento.pressao_dinamica?.toFixed(2)} N/m²</p>
-                            <p>Parede Barlavento: {resultadoCalculo.cargas_vento.carga_parede_barlavento?.toFixed(2)} N/m²</p>
-                            <p>Parede Sotavento: {resultadoCalculo.cargas_vento.carga_parede_sotavento?.toFixed(2)} N/m²</p>
-                            <p>Cobertura: {resultadoCalculo.cargas_vento.carga_cobertura?.toFixed(2)} N/m²</p>
+                            <p>PressÃ£o DinÃ¢mica: {resultadoCalculo.cargas_vento.pressao_dinamica?.toFixed(2)} N/mÂ²</p>
+                            <p>Parede Barlavento: {resultadoCalculo.cargas_vento.carga_parede_barlavento?.toFixed(2)} N/mÂ²</p>
+                            <p>Parede Sotavento: {resultadoCalculo.cargas_vento.carga_parede_sotavento?.toFixed(2)} N/mÂ²</p>
+                            <p>Cobertura: {resultadoCalculo.cargas_vento.carga_cobertura?.toFixed(2)} N/mÂ²</p>
                           </div>
                         </div>
                       )}
@@ -348,7 +348,7 @@ function App() {
                         <CardHeader>
                           <CardTitle className="text-lg">{projeto.nome}</CardTitle>
                           <CardDescription>
-                            {projeto.comprimento}m × {projeto.largura}m × {projeto.altura}m
+                            {projeto.comprimento}m Ã— {projeto.largura}m Ã— {projeto.altura}m
                           </CardDescription>
                         </CardHeader>
                         <CardContent>
@@ -379,3 +379,5 @@ function App() {
 }
 
 export default App
+
+

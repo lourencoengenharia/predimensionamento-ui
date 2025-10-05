@@ -1,56 +1,63 @@
-﻿_# Path: predimensionamento-ui/src/pages/RegisterPage.jsx_
+﻿import React, { useState } from "react";
 
-import React, { useState } from 'react';
-import api from '../services/api';
+export default function RegisterPage() {
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
 
-const RegisterPage = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
 
-  const handleRegister = async (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    setError('');
-    setSuccess('');
-    try {
-      await api.post('/auth/register', { username, email, password });
-      setSuccess('User registered successfully! You can now log in.');
-      setUsername('');
-      setEmail('');
-      setPassword('');
-    } catch (err) {
-      setError(err.response?.data?.error || 'Registration failed');
-    }
-  };
+    // TODO: Chamar API de cadastro quando a API estiver online.
+    // Ex.: await api.post("/usuarios", form)
+    alert(`Enviado:\nNome: ${form.name}\nEmail: ${form.email}`);
+  }
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
-        <div>
-          <label>Username</label>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </div>
-        <div>
-          <label>Password</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>}
-        <button type="submit">Register</button>
+    <main style={{ maxWidth: 420, margin: "40px auto", fontFamily: "system-ui, Arial" }}>
+      <h1 style={{ marginBottom: 16 }}>Criar conta</h1>
+      <form onSubmit={handleSubmit}>
+        <label style={{ display: "block", marginBottom: 8 }}>
+          Nome
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            style={{ width: "100%", padding: 8, marginTop: 4 }}
+            required
+          />
+        </label>
+
+        <label style={{ display: "block", marginBottom: 8 }}>
+          Email
+          <input
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            style={{ width: "100%", padding: 8, marginTop: 4 }}
+            required
+          />
+        </label>
+
+        <label style={{ display: "block", marginBottom: 16 }}>
+          Senha
+          <input
+            name="password"
+            type="password"
+            value={form.password}
+            onChange={handleChange}
+            style={{ width: "100%", padding: 8, marginTop: 4 }}
+            required
+          />
+        </label>
+
+        <button type="submit" style={{ padding: "10px 14px", cursor: "pointer" }}>
+          Registrar
+        </button>
       </form>
-    </div>
+    </main>
   );
-};
-
-export default RegisterPage;
-
-
-
-
+}

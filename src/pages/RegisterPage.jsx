@@ -10,8 +10,6 @@ export default function RegisterPage() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // TODO: Chamar API de cadastro quando a API estiver online.
-    // Ex.: await api.post("/usuarios", form)
     alert(`Enviado:\nNome: ${form.name}\nEmail: ${form.email}`);
   }
 
@@ -21,37 +19,17 @@ export default function RegisterPage() {
       <form onSubmit={handleSubmit}>
         <label style={{ display: "block", marginBottom: 8 }}>
           Nome
-          <input
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            style={{ width: "100%", padding: 8, marginTop: 4 }}
-            required
-          />
+          <input name="name" value={form.name} onChange={handleChange} style={{ width: "100%", padding: 8, marginTop: 4 }} required />
         </label>
 
         <label style={{ display: "block", marginBottom: 8 }}>
           Email
-          <input
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
-            style={{ width: "100%", padding: 8, marginTop: 4 }}
-            required
-          />
+          <input name="email" type="email" value={form.email} onChange={handleChange} style={{ width: "100%", padding: 8, marginTop: 4 }} required />
         </label>
 
         <label style={{ display: "block", marginBottom: 16 }}>
           Senha
-          <input
-            name="password"
-            type="password"
-            value={form.password}
-            onChange={handleChange}
-            style={{ width: "100%", padding: 8, marginTop: 4 }}
-            required
-          />
+          <input name="password" type="password" value={form.password} onChange={handleChange} style={{ width: "100%", padding: 8, marginTop: 4 }} required />
         </label>
 
         <button type="submit" style={{ padding: "10px 14px", cursor: "pointer" }}>
@@ -61,3 +39,4 @@ export default function RegisterPage() {
     </main>
   );
 }
+

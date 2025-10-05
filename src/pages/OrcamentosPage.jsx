@@ -1,4 +1,4 @@
-﻿_# Path: predimensionamento-ui/src/pages/OrcamentosPage.jsx_
+﻿
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
@@ -377,5 +377,6 @@ const OrcamentosPage = () => {
 };
 
 export default OrcamentosPage;
+
 
 
